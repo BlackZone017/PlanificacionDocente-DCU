@@ -1,0 +1,134 @@
+﻿@model IEnumerable<dcuFinal.Models.asignacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+    <h2 class="title is-3">Asignaciones <b>@ViewBag.nombreMateria</b></h2><br />
+
+    @Html.ActionLink("Agregar Asignación", "Create", null, new { @class = "button is-success" })<span>  </span>
+
+    @Html.ActionLink("Todas Materias", "Index", "Materias", null, new { @class = "button is-info is-pulled-right" })
+    @*<a>
+        @using (Html.BeginForm("ver", "Asignaciones", FormMethod.Post))
+    {
+
+        <label class="label">Buscar por Materia</label>
+
+         @Html.DropDownList("nombre", (IEnumerable<SelectListItem>)ViewBag.materias, htmlAttributes: new { @class = "input" })
+        <input type="submit" value="Buscar" class="button is-primary" />
+    }
+    </a>*@
+    
+
+    <br /><br />
+    <div class="columns" id="tabla">
+        <div class="column">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.grado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.año)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.competencia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.estrategia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.recursos)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.evaluacion)
+                    </th>
+                    <th>
+                        Materia
+                        @*@Html.DisplayNameFor(model => model.Materia.nombre)*@
+                    </th>
+                    <th class="print"></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.grado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.año)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.competencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.estrategia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.recursos)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.evaluacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Materia.nombre)
+                        </td>
+                        <td class="print">
+
+                            <div class="field has-addons">
+                                <p class="control">
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "button is-outlined is-success" })
+                                </p>
+                                <p class="control">
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "button is-outlined is-info" })
+                                </p>
+                                <p class="control">
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "button is-outlined is-danger" })
+                                </p>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+    <div class="column">
+        <div class="control">
+            <button onclick="printDiv('tabla')" class="button is-primary is-fullwidth">Imprimir</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+		function printDiv(tabla){
+			var printContents = document.getElementById(tabla).innerHTML;
+			var originalContents = document.body.innerHTML;
+			document.body.innerHTML = printContents;
+			window.print();
+			document.body.innerHTML = originalContents;
+		}
+</script>
+
+
+
+

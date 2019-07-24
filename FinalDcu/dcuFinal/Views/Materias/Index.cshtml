@@ -1,0 +1,84 @@
+﻿@model IEnumerable<dcuFinal.Models.Materia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+    @if (ViewBag.Error == null)
+    {
+        <h1 class="title is-3">Materias de <b> @Session["UserEmail"]</b></h1>
+        <br />
+
+
+            @Html.ActionLink("Agregar Materia", "Create", null, new { @class = "button is-success" })
+
+
+            @Html.ActionLink("Todas Asignaciones", "Index", "Asignaciones", null, new { @class = "button is-info is-pulled-right" })
+
+        <br /><br />
+
+        <div class="columns">
+            <div class="column">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nombre)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "button is-outlined is-success" })
+                                    </p>
+                                    <p class="control">
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.id }, new { @class = "button is-outlined is-info" })
+                                    </p>
+                                    <p class="control">
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.id }, new { @class = "button is-outlined is-danger" })
+                                    </p>
+                                    <p class="control">
+                                        @Html.ActionLink("Agregar Asignacion", "Create", "Asignaciones", null, new { @class = "button is-outlined is-link" })
+                                    </p>
+                                    <p class="control">
+                                        @Html.ActionLink("Ver estas asignaciones", "verAsignaciones", "Asignaciones", new { mid = item.id }, new { @class = "button is-outlined is-warning" })
+                                    </p>
+
+                                    @*<p class="control">
+                                        @Html.ActionLink("Ver estas asignaciones", "verAsignaciones", "Asignaciones", new { mid = item.id }, null, new { @class = "button is-outlined is-danger" })
+                                    </p>*@
+                                </div>
+
+
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+        <p>
+
+        </p>
+        <br />
+    }
+    else
+    {
+        <div class="notification is-danger">
+            @ViewBag.Error
+        </div>
+    }
+</div>

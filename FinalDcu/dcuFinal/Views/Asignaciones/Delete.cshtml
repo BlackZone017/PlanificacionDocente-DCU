@@ -1,0 +1,105 @@
+﻿@model dcuFinal.Models.asignacion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container">
+    <section class="section">
+        <div class="notification is-danger">
+
+            <h2>Delete</h2>
+
+            <h3>Seguro que quiere borrar <b>esta asignación</b>?</h3>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+                <div>
+                    <hr />
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Fecha</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.fecha)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Nombre</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.nombre)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Grado</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.grado)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Año</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.año)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Competencia</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.competencia)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Estretagia</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.estrategia)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Recursos</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.recursos)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Evaluacion</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.evaluacion)
+                    </div>
+
+                    <div class="field">
+                        <p class="title is-size-4 has-text-centered">Materia</p>
+                    </div>
+                    <div class="field has-text-centered is-size-5">
+                        @Html.DisplayFor(model => model.Materia.nombre)
+                    </div>
+                    <br />
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                        <div class="columns is-centered">
+                            <div class="column is-one-third">
+                                <input type="submit" value="Borrar" class="button is-danger is-fullwidth" />
+                            </div>
+                            <div class="column is-one-third">
+                                @Html.ActionLink("Volver a lista", "Index", null, new { @class = "button is-fullwidth" })
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+                
+        </div>
+
+    </section>
+</div>
+            

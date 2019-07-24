@@ -1,0 +1,73 @@
+﻿@model dcuFinal.Models.Materia
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+    <section class="section">
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+                <h2 class="title has-text-centered">Editar Materia <br><b>@Model.nombre</b></h2>
+
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.id)
+
+                        <div class="field">
+                            @Html.LabelFor(model => model.nombre, "Nombre Materia", htmlAttributes: new { @class = "label" })
+                            @*@Html.Label("Nombre")*@
+                            <div class="control">
+                                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "input is-info" } })
+                                <br /><br />
+                                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <!--
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Usuario_ID, "Usuario_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Usuario_ID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Usuario_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                        -->
+                        @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>*@
+                        <div class="columns">
+                            <div class="column">
+                                @Html.ActionLink("Volver a Materias", "Index", null, new { @class = "button is-info is-fullwidth" })
+                            </div>
+                            <div class="column">
+                                <button value="Guardar Cambios" class="button is-success is-fullwidth">Guardar Cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                @*<a class="Button is-info">
+                    @Html.ActionLink("Editar", "Edit", null, new { @class = "button is-warning" })
+                </a>*@
+            </div>
+        </div>
+    </section>
+
+    
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

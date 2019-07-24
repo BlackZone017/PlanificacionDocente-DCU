@@ -1,0 +1,113 @@
+﻿@model dcuFinal.Models.asignacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <section class="section">
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+                <h2 class="title has-text-centered">Detalles</h2>
+
+                <div>
+                    <h4 class="title is-4 has-text-centered">@Model.nombre</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.Label("Fecha ", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.fecha)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Nombre ", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.nombre)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Grado ", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.grado)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Año ", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.año)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Competencias ", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.competencia)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Estrategias", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.estrategia)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Recursos ", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.recursos)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Evaluación", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.evaluacion)
+                        </dd>
+                        <br />
+
+                        <dt>
+                            @Html.Label("Materia", htmlAttributes: new { @class = "label" })
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Materia.nombre)
+                        </dd>
+                        <br />
+                    </dl>
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        @Html.ActionLink("<- Volver a Materias", "Index", null, new { @class = "button is-info is-fullwidth" })
+                    </div>
+                    <div class="column">
+                        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }, htmlAttributes: new { @class = "button is-warning is-fullwidth" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+                
